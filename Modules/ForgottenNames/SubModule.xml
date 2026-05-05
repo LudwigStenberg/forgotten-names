@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Module>
+  <Name value="Forgotten Names"/>
+  <Id value="ForgottenNames"/>
+  <Version value="v1.0.0"/>
+  <SingleplayerModule value="true"/>
+  <MultiplayerModule value="false"/>
+  <Official value="false"/>
+
+  <DependedModules>
+    <DependedModule Id="Native" DependentVersion="v1.0.0"/>
+    <DependedModule Id="SandBoxCore" DependentVersion="v1.0.0"/>
+    <DependedModule Id="SandBox" DependentVersion="v1.0.0"/>
+    <DependedModule Id="StoryMode" DependentVersion="v1.0.0"/>
+    <DependedModule Id="Harmony" DependentVersion="v1.0.0"/>
+  </DependedModules>
+
+  <SubModules>
+    <SubModule>
+      <Name value="ForgottenNames"/>
+      <DLLName value="ForgottenNames.dll"/>
+      <SubModuleClassType value="ForgottenNames.SubModule"/>
+      <Tags/>
+    </SubModule>
+  </SubModules>
+
+  <Xmls/>
+</Module>
