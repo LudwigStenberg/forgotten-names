@@ -64,8 +64,13 @@
       <HintPath>..\..\..\..\..\..\..\Ludwig\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="TaleWorlds.ObjectSystem">
+      <HintPath>..\..\..\..\..\..\..\Ludwig\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Creator\HeroFactory.cs" />
     <Compile Include="Data\HeroDefinition.cs" />
     <Compile Include="Data\Heroes\HeroRoster.cs" />
     <Compile Include="SubModule.cs" />

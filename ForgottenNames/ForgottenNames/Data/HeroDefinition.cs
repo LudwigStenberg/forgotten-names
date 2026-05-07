@@ -1,4 +1,6 @@
-﻿namespace ForgottenNames
+﻿using System.Collections.Generic;
+
+namespace ForgottenNames
 {
     /// <summary>
     /// Defines all the data needed to create a custom hero.
@@ -10,12 +12,14 @@
         // ── Identity ──
         // From: spspecialcharacters.xml --> id, name, age, culture, occupation
         // From: heroes.xml --> text (encyclopedia)
-        public string HeroId { get; set; }            // e.g. "fn_bjarne_the_still"
+        public string HeroId { get; set; }             // e.g. "fn_bjarne_the_still"
+        public string TemplateId { get; set; }         // e.g. "spc_wanderer_empire_0" -- is given to MBObjectManager.Instance.GetObject<CharacterObject>
         public string FirstName { get; set; }          // e.g. "Bjarne"
         public string FullName { get; set; }           // e.g. "Bjarne the Still"
         public bool IsFemale { get; set; } = false;    // from: is_female attribute
         public int Age { get; set; }                   // from: age attribute
-        public string CultureId { get; set; }          // from: culture="Culture.nord"
+        public string CultureId { get; set; }          // e.g. "nord"
+        public string BornSettlementId { get; set; }     // e.g "town_N2"
 
         // ── Family ──
         public string FatherId { get; set; } = null;
@@ -24,9 +28,9 @@
 
         // ── Appearance ──
         // From: spspecialcharacters.xml --> face_key_template (but we use specific codes)
-        public string BodyProperties { get; set; }     // the full BodyProperties XML string
-        public float Weight { get; set; }              // body weight
-        public float Build { get; set; }               // body build
+        public string StaticBodyProperties { get; set; }     // The appearance key from the <BodyProperties/> string
+        public float Weight { get; set; }              
+        public float Build { get; set; }               
 
         // ── Personality Traits ──
         // From: spspecialcharacters.xml --> Traits block
@@ -42,27 +46,30 @@
         // Dictionary of skill name --> value
         public Dictionary<string, int> Skills { get; set; }
         public string PreferredUpgradeFormation { get; set; } = null;
+        public int Level { get; set; }
 
         // ── Equipment ──
         // From: spspecialcharacters.xml --> Equipments block
         // Item IDs for battle and civilian loadouts
         public List<string> BattleEquipment { get; set; }   // e.g. ["Item.nordic_axe", "Item.round_shield"]
         public List<string> CivilianEquipment { get; set; }  // tavern outfit
+        public int Gold { get; set; }
+
 
         // ── Lore ──
         // From: heroes.xml --> text attribute
         public string EncyclopediaEntry { get; set; }    // full encyclopedia text
         public string ShortDescription { get; set; }     // one-liner for lists
+        public bool HiddenInEncyclopedia { get; set; } = false;
 
         // ── Recruitment / Spawn ──
-        // Not in vanilla XML — our custom system
+        // Not in vanilla XML — custom system
         public List<string> SpawnLocations { get; set; }   // town IDs for Location-Pool
         public List<string> ExcludedFactions { get; set; }
         public int CharmOverride { get; set; }               // 0 = no charm gate
 
         // ── Dialogue ──
-        // Not in vanilla XML in this form — our custom phased system
-        public string VoiceType { get; set; } // from: voice attribute ("curt", "softspoken", "earnest")
+        public string VoiceType { get; set; } // from: voice attribute ("curt", "softspoken", "earnest", "ironic")
         // Actual dialogue lines handled by a separate dialogue class
 
         public HeroDefinition()
