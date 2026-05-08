@@ -27,7 +27,7 @@ namespace ForgottenNames.Data
                 Age = 30,
                 CultureId = "nord",
                 BornSettlementId = "town_N2",
-                StaticBodyProperties = "key=\"000054029AB453C00A45278753C516B489D76A3B6974297762B79F9A598964A376D5AF130D356A53883A9B6F6D35A844000000000000001D0000000051B03044\"",
+                BodyPropertiesXml = "<BodyProperties version=\"4\" age=\"28\" weight=\"0.5154\" build=\"0.5245\"  key=\"000054029AB453C00A45278753C516B489D76A3B6974297762B79F9A598964A376D5AF130D356A53883A9B6F6D35A844000000000000001D0000000051B03044\"/>",
                 Weight = 0.5f,
                 Build = 0.5f,
                 TraitCalculating = 1,
@@ -35,7 +35,7 @@ namespace ForgottenNames.Data
                 TraitHonor = 1,
                 TraitMercy = 1,
                 TraitValor = 2,
-                Skills = new Dictionary<string, int> 
+                Skills = new Dictionary<string, int>
                 {
                     { "OneHanded", 185 },
                     { "TwoHanded", 150 },
@@ -60,6 +60,7 @@ namespace ForgottenNames.Data
                     { "Shipmaster", 60 }
                 },
                 PreferredUpgradeFormation = "Infantry",
+                Level = 20,
                 // BattleEquipment = // deferred -- using default for testing
                 // CivillianEquipment = // deferred -- using default for testing
                 Gold = 500,
@@ -77,6 +78,7 @@ speaks little, and fights when there is cause to fight with a focus that unsettl
 moves on without leaving much behind. What he is waiting for, if anything, he has not said. He was found most recently in Hvalvik, crewing a merchant knarr out
 of the northern fjords.",
                 ShortDescription = "A Nord huscarl without a hall. Finds work on the water. Does not speak of what he lost.",
+                HiddenInEncyclopedia = false,
                 SpawnLocations = new List<string>() { "town_N1" },
                 ExcludedFactions = new List<string>(),
                 CharmOverride = 0,

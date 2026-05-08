@@ -28,9 +28,9 @@ namespace ForgottenNames
 
         // ── Appearance ──
         // From: spspecialcharacters.xml --> face_key_template (but we use specific codes)
-        public string StaticBodyProperties { get; set; }     // The appearance key from the <BodyProperties/> string
-        public float Weight { get; set; }              
-        public float Build { get; set; }               
+        public string BodyPropertiesXml { get; set; } // xml string
+        public float Weight { get; set; }
+        public float Build { get; set; }
 
         // ── Personality Traits ──
         // From: spspecialcharacters.xml --> Traits block
@@ -59,7 +59,7 @@ namespace ForgottenNames
         // ── Lore ──
         // From: heroes.xml --> text attribute
         public string EncyclopediaEntry { get; set; }    // full encyclopedia text
-        public string ShortDescription { get; set; }     // one-liner for lists
+        public string ShortDescription { get; set; }     // can't find this one but keeping it as internal documentation for now
         public bool HiddenInEncyclopedia { get; set; } = false;
 
         // ── Recruitment / Spawn ──

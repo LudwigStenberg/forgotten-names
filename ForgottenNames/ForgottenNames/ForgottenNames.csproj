@@ -36,6 +36,10 @@
       <HintPath>..\..\..\..\..\..\..\Ludwig\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.Harmony\bin\Win64_Shipping_Client\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="NavalDLC">
+      <HintPath>..\..\..\..\..\..\..\Ludwig\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\NavalDLC\bin\Win64_Shipping_Client\NavalDLC.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
