@@ -8,11 +8,8 @@
   <Official value="false"/>
 
   <DependedModules>
-    <DependedModule Id="Native" DependentVersion="v1.0.0"/>
-    <DependedModule Id="SandBoxCore" DependentVersion="v1.0.0"/>
-    <DependedModule Id="SandBox" DependentVersion="v1.0.0"/>
-    <DependedModule Id="StoryMode" DependentVersion="v1.0.0"/>
-    <DependedModule Id="Harmony" DependentVersion="v1.0.0"/>
+    <DependedModule Id="Bannerlord.Harmony" Optional="false"/>
+	<DependedModule Id="NavalDLC" Optional="false"/>
   </DependedModules>
 
   <SubModules>

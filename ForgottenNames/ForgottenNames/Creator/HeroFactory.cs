@@ -50,8 +50,13 @@ namespace ForgottenNames.Creator
 
             foreach (HeroDefinition def in heroDefs)
             {
-                var hero = CreateHero(def);
-                heroes.Add(hero);
+                var existing = Hero.FindFirst(h => h.Name.ToString() == def.FullName);
+
+                if (existing == null)
+                {
+                    var hero = CreateHero(def);
+                    heroes.Add(hero);
+                }
             }
 
             return heroes;

@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using ForgottenNames.Creator;
+using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
@@ -24,7 +25,9 @@ namespace ForgottenNames
             {
                 CampaignGameStarter campaignStarter = (CampaignGameStarter)gameStarterObject;
 
+
                 // Register custom behaviors here
+                campaignStarter.AddBehavior(new HeroSpawnBehavior());
                 
             }
         }
