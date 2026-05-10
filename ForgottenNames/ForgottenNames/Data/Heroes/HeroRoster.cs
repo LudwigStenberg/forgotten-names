@@ -27,7 +27,7 @@ namespace ForgottenNames.Data
                 Age = 30,
                 CultureId = "nord",
                 BornSettlementId = "town_N2",
-                BodyPropertiesXml = "<BodyProperties version=\"4\" age=\"28\" weight=\"0.5154\" build=\"0.5245\"  key=\"000054029AB453C00A45278753C516B489D76A3B6974297762B79F9A598964A376D5AF130D356A53883A9B6F6D35A844000000000000001D0000000051B03044\"/>",
+                BodyPropertiesXml = "<BodyProperties version=\"4\" age=\"30\" weight=\"0.5154\" build=\"0.5245\"  key=\"000054029AB453C00A45278753C516B489D76A3B6974297762B79F9A598964A376D5AF130D356A53883A9B6F6D35A844000000000000001D0000000051B03044\"/>",
                 Weight = 0.5f,
                 Build = 0.5f,
                 TraitCalculating = 1,
@@ -64,19 +64,24 @@ namespace ForgottenNames.Data
                 // BattleEquipment = // deferred -- using default for testing
                 // CivillianEquipment = // deferred -- using default for testing
                 Gold = 500,
-                EncyclopediaEntry = @"Bjarne, called the Still, is a Nord of the Kjolding people, born to a family of fighting men in the coastal fjords of Nordvyg. 
-His father served as huscarl to a petty chieftain before dying at sea on a raiding voyage — Bjarne was twelve years old. He was raised thereafter by 
-his mother, a woman remembered by those who knew her as practical beyond sentiment.
+                EncyclopediaEntry = @"Bjarne, called the Still, is a Nord of the Kjolding people, born to a family of fighting men in
+the coastal fjords of Nordvyg. His father served as huscarl to a petty chieftain before dying at sea on a raiding voyage — Bjarne was 
+twelve years old. He was raised thereafter by his mother, a woman remembered by those who knew her as practical beyond sentiment.
 
-He came to the huscarl's oath young, selected by a Kjolding Jarl whose name is not recorded in any southern chronicle. Those who served alongside him 
-describe a fighter of uncommon steadiness — not the loudest man in a shield wall, but the one others found themselves moving toward when the line began
-to break. He bore a wound taken in a raid that left a scar across his face and kept him bedridden with fever in a village some distance from his Jarl's 
-hall. On the night he lay there, the hall burned. The Jarl, his household, his huscarls — all of them gone before morning. The cause, as far as Bjarne has
-ever learned, remains uncertain. A rival clan, perhaps. An old debt settled in fire.
+He came to the huscarl's oath young, selected by a Kjolding Jarl whose name is not recorded
+in any southern chronicle.Those who served alongside him describe a fighter of uncommon 
+steadiness — not the loudest man in a shield wall, but the one others found themselves 
+moving toward when the line began to break. He bore a wound taken in a raid that left a scar
+across his face and kept him bedridden with fever in a village some distance from his Jarl's 
+hall. On the night he lay there, the hall burned. The Jarl, his household, his huscarls — all
+of them gone before morning. The cause, as far as Bjarne has ever learned, remains uncertain.
+A rival clan, perhaps. An old debt settled in fire.
 
-speaks little, and fights when there is cause to fight with a focus that unsettles men expecting rage. He takes contracts without asking too many questions and
-moves on without leaving much behind. What he is waiting for, if anything, he has not said. He was found most recently in Hvalvik, crewing a merchant knarr out
-of the northern fjords.",
+He did not return to Kjolding lands after. Those who have encountered him in the ports of Nordvyg 
+and along the Sturgian coast describe a man who works hard speaks little, and fights when there is 
+cause to fight with a focus that unsettles men expecting rage. He takes contracts without asking too 
+many questions and moves on without leaving much behind. What he is waiting for, if anything, he has 
+not said. He was found most recently in Hvalvik, crewing a merchant knarr out of the northern fjords.",
                 ShortDescription = "A Nord huscarl without a hall. Finds work on the water. Does not speak of what he lost.",
                 HiddenInEncyclopedia = false,
                 SpawnLocations = new List<string>() { "town_N1" },

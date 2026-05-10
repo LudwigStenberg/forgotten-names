@@ -77,9 +77,12 @@
     <Compile Include="Creator\HeroSpawnBehavior.cs" />
     <Compile Include="Creator\HeroFactory.cs" />
     <Compile Include="Data\HeroDefinition.cs" />
+    <Compile Include="Creator\HeroRegistry.cs" />
     <Compile Include="Data\Heroes\HeroRoster.cs" />
+    <Compile Include="Dialogue\BjarneDialogueBehavior.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,11 @@
-﻿using ForgottenNames.Creator;
-using HarmonyLib;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.Core;
+﻿using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
+using TaleWorlds.CampaignSystem;
+
+using HarmonyLib;
+
+using ForgottenNames.Creator;
+using ForgottenNames.Dialogue;
 
 namespace ForgottenNames
 {
@@ -28,7 +31,8 @@ namespace ForgottenNames
 
                 // Register custom behaviors here
                 campaignStarter.AddBehavior(new HeroSpawnBehavior());
-                
+                campaignStarter.AddBehavior(new BjarneDialogueBehavior());
+
             }
         }
     }

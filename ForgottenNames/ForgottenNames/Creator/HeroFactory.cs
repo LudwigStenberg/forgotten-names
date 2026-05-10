@@ -1,15 +1,16 @@
-﻿using ForgottenNames.Data;
+﻿using System;
 using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.CharacterDevelopment;
-using TaleWorlds.CampaignSystem.Settlements;
+
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
+using TaleWorlds.CampaignSystem;
 using NavalDLC.CharacterDevelopment;
-using TaleWorlds.Library;
-using System;
-using System.Linq;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
+
+using ForgottenNames.Data;
 
 namespace ForgottenNames.Creator
 {
@@ -136,6 +137,8 @@ namespace ForgottenNames.Creator
             // ExcludedFactions -- custom behavior
             // CharmOverride -- custom behavior
             // VoiceType -- carried from template, needs investigation to override
+
+            HeroRegistry.Register(def.HeroId, hero);
 
             return hero;
         }
