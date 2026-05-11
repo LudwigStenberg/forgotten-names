@@ -27,7 +27,7 @@ namespace ForgottenNames.Data
                 Age = 30,
                 CultureId = "nord",
                 BornSettlementId = "town_N2",
-                BodyPropertiesXml = "<BodyProperties version=\"4\" age=\"30\" weight=\"0.5154\" build=\"0.5245\"  key=\"000054029AB453C00A45278753C516B489D76A3B6974297762B79F9A598964A376D5AF130D356A53883A9B6F6D35A844000000000000001D0000000051B03044\"/>",
+                BodyPropertiesXml = "<BodyProperties version=4 age=30 weight=0.1713 build=0.3241  key=000208029AB453C06A45278753C516B489D76A3B6974290462B7919A598964A302F53F240F356A53083A9B6F6D35A844000000000000001D0000000051E83044  />",
                 Weight = 0.5f,
                 Build = 0.5f,
                 TraitCalculating = 1,

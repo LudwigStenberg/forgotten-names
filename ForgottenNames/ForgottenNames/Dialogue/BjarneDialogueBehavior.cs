@@ -1,7 +1,10 @@
 ﻿using ForgottenNames.Creator;
 using ForgottenNames.Data;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Conversation;
+using TaleWorlds.CampaignSystem.GameMenus;
+using TaleWorlds.CampaignSystem.Party;
 
 namespace ForgottenNames.Dialogue
 {
@@ -150,19 +153,23 @@ namespace ForgottenNames.Dialogue
                 id: "fn_bjarne_recruit_reply_a",
                 input: TokRecruitAnswerA,
                 output: TokClose,
-                text: "Good answer. That's the only kind worth giving. I'll ride with you. Don't make me regret the decision.");
+                text: "Good answer. That's the only kind worth giving. I'll ride with you. Don't make me regret the decision.",
+                consequence: RecruitBjarne);
+                
 
             AddNpcLine(starter,
                 id: "fn_bjarne_recruit_reply_b",
                 input: TokRecruitAnswerB,
                 output: TokClose,
-                text: "...I've heard that before. Usually from men who hadn't lost yet. We'll see if it holds. I'll ride with you.");
+                text: "...I've heard that before. Usually from men who hadn't lost yet. We'll see if it holds. I'll ride with you.",
+                consequence: RecruitBjarne);
 
             AddNpcLine(starter,
                 id: "fn_bjarne_recruit_reply_c",
                 input: TokRecruitAnswerC,
                 output: TokClose,
-                text: "...At least you're honest about it. Gods help me. Come on then.");
+                text: "...At least you're honest about it. Gods help me. Come on then.",
+                consequence: RecruitBjarne);
         }
 
 
@@ -199,6 +206,25 @@ namespace ForgottenNames.Dialogue
             return bjarne != null
                 && Hero.OneToOneConversationHero == bjarne
                 && !bjarne.IsPlayerCompanion;
+        }
+
+        private void RecruitBjarne()
+        {
+            Hero bjarne = HeroRegistry.Get(BjarneId);
+            if (bjarne == null) return;
+
+            // 1. Mark Bjarne as a companion of the player's clan.
+            // Must happen before AddHeroToPartyAction so the "joined" notification fires.
+            AddCompanionAction.Apply(Clan.PlayerClan, bjarne);
+
+            // 2. Move Bjarne to the player's party
+            AddHeroToPartyAction.Apply(bjarne, MobileParty.MainParty);
+
+            // 3. Deduct the hiring cost from the player's gold.
+            int cost = Campaign.Current.Models.PartyWageModel
+                    .GetTroopRecruitmentCost(bjarne.CharacterObject, Hero.MainHero, false)
+                    .RoundedResultNumber;
+            GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, null, cost, false);
         }
     }
 }
