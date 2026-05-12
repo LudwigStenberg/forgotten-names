@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
-using ForgottenNames;
-using TaleWorlds.Core;
 
 namespace ForgottenNames.Data
 {
@@ -24,10 +21,10 @@ namespace ForgottenNames.Data
                 FirstName = "Bjarne",
                 FullName = "Bjarne the Still",
                 IsFemale = false,
-                Age = 30,
+                Age = 29,
                 CultureId = "nord",
                 BornSettlementId = "town_N2",
-                BodyPropertiesXml = "<BodyProperties version=4 age=30 weight=0.1713 build=0.3241  key=000208029AB453C06A45278753C516B489D76A3B6974290462B7919A598964A302F53F240F356A53083A9B6F6D35A844000000000000001D0000000051E83044  />",
+                BodyPropertiesXml = "<BodyProperties version=\"4\" age=\"29\" weight=\"0.0069\" build=\"0.4907\"  key=\"000000029AB453C05A45278753C516B489F7773B4974290162B7909A7987643401F70F130F356A53083A9B6F6D35A844000000000000001D0000000033F83044\"  />",
                 Weight = 0.5f,
                 Build = 0.5f,
                 TraitCalculating = 1,

@@ -5,12 +5,15 @@ using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Conversation;
 using TaleWorlds.CampaignSystem.GameMenus;
 using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Localization;
 
 namespace ForgottenNames.Dialogue
 {
     public class BjarneDialogueBehavior : CampaignBehaviorBase
     {
         private const string BjarneId = "fn_bjarne_the_still";
+
+        private const int BjarneRecruitmentCost = 8000;
 
         // --- Token constants ---
         // Tokens describe conversational STATES, not line numbers.
@@ -83,8 +86,8 @@ namespace ForgottenNames.Dialogue
                 id: "fn_bjarne_player_recruit",
                 input: TokMainOptions,
                 output: TokRecruit1Said,
-                text: "I could use someone like you. Ride with me.",
-                condition: IsTalkingToBjarneAsStranger);
+                text: "I could use someone like you. Ride with me. ({GOLD_AMOUNT}{GOLD_ICON})",
+                condition: RecruitOptionCondition);
 
             AddPlayerLine(starter,
                 id: "fn_bjarne_player_leave",
@@ -208,6 +211,14 @@ namespace ForgottenNames.Dialogue
                 && !bjarne.IsPlayerCompanion;
         }
 
+        private bool RecruitOptionCondition()
+        {
+            if (!IsTalkingToBjarneAsStranger()) return false;
+
+            MBTextManager.SetTextVariable("GOLD_AMOUNT", BjarneRecruitmentCost);
+            return true;
+        }
+
         private void RecruitBjarne()
         {
             Hero bjarne = HeroRegistry.Get(BjarneId);
@@ -221,10 +232,7 @@ namespace ForgottenNames.Dialogue
             AddHeroToPartyAction.Apply(bjarne, MobileParty.MainParty);
 
             // 3. Deduct the hiring cost from the player's gold.
-            int cost = Campaign.Current.Models.PartyWageModel
-                    .GetTroopRecruitmentCost(bjarne.CharacterObject, Hero.MainHero, false)
-                    .RoundedResultNumber;
-            GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, null, cost, false);
+            GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, null, BjarneRecruitmentCost, false);
         }
     }
 }
