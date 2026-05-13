@@ -27,11 +27,11 @@ namespace ForgottenNames.Data
                 BodyPropertiesXml = "<BodyProperties version=\"4\" age=\"29\" weight=\"0.0069\" build=\"0.4907\"  key=\"000000029AB453C05A45278753C516B489F7773B4974290162B7909A7987643401F70F130F356A53083A9B6F6D35A844000000000000001D0000000033F83044\"  />",
                 Weight = 0.5f,
                 Build = 0.5f,
-                TraitCalculating = 1,
                 TraitGenerosity = -1,
                 TraitHonor = 1,
-                TraitMercy = 1,
                 TraitValor = 2,
+                TraitMercy = 1,
+                TraitCalculating = 1,
                 Skills = new Dictionary<string, int>
                 {
                     { "OneHanded", 185 },

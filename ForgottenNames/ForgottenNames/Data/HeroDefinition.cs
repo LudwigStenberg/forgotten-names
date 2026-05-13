@@ -35,11 +35,11 @@ namespace ForgottenNames
         // --- Personality Traits ---
         // From: spspecialcharacters.xml --> Traits block
         // Range: -2 to 2 for each
-        public int TraitCalculating { get; set; }
         public int TraitGenerosity { get; set; }
         public int TraitHonor { get; set; }
-        public int TraitMercy { get; set; }
         public int TraitValor { get; set; }
+        public int TraitMercy { get; set; }
+        public int TraitCalculating { get; set; }
 
         // --- Skills & Roles ---
         // From: spspecialcharacters.xml --> skill_template (but we define directly)

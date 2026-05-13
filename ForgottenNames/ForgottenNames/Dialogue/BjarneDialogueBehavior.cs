@@ -29,6 +29,7 @@ namespace ForgottenNames.Dialogue
         private const string TokRecruit1Said = "fn_bjarne_recruit_1_said";
         private const string TokRecruit2Said = "fn_bjarne_recruit_2_said";
         private const string TokRecruitChallenged = "fn_bjarne_recruit_challenged";  // player picks A/B/C here
+        private const string TokRecruitBrokeSaid = "fn_bjarne_recruit_broke_said";
 
         // Recruitment branch — three parallel reply tokens (one per player answer)
         private const string TokRecruitAnswerA = "fn_bjarne_recruit_answer_a";
@@ -88,6 +89,13 @@ namespace ForgottenNames.Dialogue
                 output: TokRecruit1Said,
                 text: "I could use someone like you. Ride with me. ({GOLD_AMOUNT}{GOLD_ICON})",
                 condition: RecruitOptionCondition);
+
+            AddPlayerLine(starter,
+                id: "fn_bjarne_player_recruit_broke",
+                input: TokMainOptions,
+                output: TokRecruitBrokeSaid,
+                text: "I'd hire you, but I can't afford {GOLD_AMOUNT}{GOLD_ICON} right now.",
+                condition: RecruitOptionBrokeCondition);
 
             AddPlayerLine(starter,
                 id: "fn_bjarne_player_leave",
@@ -150,7 +158,6 @@ namespace ForgottenNames.Dialogue
 
 
             // --- Recruitment — Bjarne's three replies, all close the conversation ---
-            // TODO: attach RecruitBjarne consequence to all three.
 
             AddNpcLine(starter,
                 id: "fn_bjarne_recruit_reply_a",
@@ -173,6 +180,14 @@ namespace ForgottenNames.Dialogue
                 output: TokClose,
                 text: "...At least you're honest about it. Gods help me. Come on then.",
                 consequence: RecruitBjarne);
+
+
+            // --- Recruitment - Bjarne's reply to the player being broke ---
+            AddNpcLine(starter,
+                id: "fn_bjarne_recruit_broke_said",
+                input: TokRecruitBrokeSaid,
+                output: TokClose,
+                text: "Coin runs out. I know how that goes. I'll be here a while yet.");
         }
 
 
@@ -214,9 +229,17 @@ namespace ForgottenNames.Dialogue
         private bool RecruitOptionCondition()
         {
             if (!IsTalkingToBjarneAsStranger()) return false;
-
             MBTextManager.SetTextVariable("GOLD_AMOUNT", BjarneRecruitmentCost);
-            return true;
+
+            return Hero.MainHero.Gold >= BjarneRecruitmentCost;
+        }
+
+        private bool RecruitOptionBrokeCondition()
+        {
+            if (!IsTalkingToBjarneAsStranger()) return false;
+            MBTextManager.SetTextVariable("GOLD_AMOUNT", BjarneRecruitmentCost);
+
+            return Hero.MainHero.Gold < BjarneRecruitmentCost;
         }
 
         private void RecruitBjarne()
