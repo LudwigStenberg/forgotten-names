@@ -45,19 +45,16 @@ namespace ForgottenNames.Creator
 
         public static List<Hero> CreateHeroes()
         {
+            HeroRegistry.Clear();
             var heroes = new List<Hero>();
-
             List<HeroDefinition> heroDefs = HeroRoster.GetAllHeroes();
 
             foreach (HeroDefinition def in heroDefs)
             {
                 var existing = Hero.FindFirst(h => h.Name.ToString() == def.FullName);
-
-                if (existing == null)
-                {
-                    var hero = CreateHero(def);
-                    heroes.Add(hero);
-                }
+                Hero hero = existing ?? CreateHero(def);
+                HeroRegistry.Register(def.HeroId, hero);
+                heroes.Add(hero);
             }
 
             return heroes;
@@ -137,8 +134,6 @@ namespace ForgottenNames.Creator
             // ExcludedFactions -- custom behavior
             // CharmOverride -- custom behavior
             // VoiceType -- carried from template, needs investigation to override
-
-            HeroRegistry.Register(def.HeroId, hero);
 
             return hero;
         }
