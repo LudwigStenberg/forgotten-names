@@ -49,12 +49,23 @@ namespace ForgottenNames.Creator
             var heroes = new List<Hero>();
             List<HeroDefinition> heroDefs = HeroRoster.GetAllHeroes();
 
+            InformationManager.DisplayMessage(new InformationMessage(
+                $"[ForgottenNames] CreateHeroes invoked. AliveHeroes count: {Campaign.Current?.AliveHeroes?.Count ?? -1}"));
+
             foreach (HeroDefinition def in heroDefs)
             {
                 var existing = Hero.FindFirst(h => h.Name.ToString() == def.FullName);
+
+                InformationManager.DisplayMessage(new InformationMessage(
+                    $"[ForgottenNames] {def.FullName}: existing={(existing == null ? "null" : "FOUND")}"));
+
                 Hero hero = existing ?? CreateHero(def);
                 HeroRegistry.Register(def.HeroId, hero);
                 heroes.Add(hero);
+
+                InformationManager.DisplayMessage(new InformationMessage(
+                    $"[ForgottenNames] {def.FullName}: OneHanded={hero.GetSkillValue(DefaultSkills.OneHanded)}, " +
+                    $"Mariner={hero.GetSkillValue(NavalSkills.Mariner)}, Level={hero.Level}"));
             }
 
             return heroes;
@@ -92,6 +103,8 @@ namespace ForgottenNames.Creator
             hero.SetTraitLevel(DefaultTraits.Valor, def.TraitValor);
 
 
+            hero.Level = def.Level;
+
             foreach (var skill in def.Skills)
             {
                 if (SkillMap.TryGetValue(skill.Key, out var skillObject ))
@@ -110,8 +123,6 @@ namespace ForgottenNames.Creator
                 hero.PreferredUpgradeFormation = upgradeFormation;
             }
 
-            hero.Level = def.Level;
-
             // BattleEquipment = // deferred -- using default for testing
             // CivillianEquipment = // deferred -- using default for testing
 
@@ -119,7 +130,7 @@ namespace ForgottenNames.Creator
 
             hero.EncyclopediaText = new TextObject(def.EncyclopediaEntry);
 
-            // Shortdescription -- not sure how this works
+            // ShortDescription -- not sure how this works
 
             hero.HiddenInEncyclopedia = def.HiddenInEncyclopedia;
 
